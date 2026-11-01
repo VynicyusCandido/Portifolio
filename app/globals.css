@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #fafaf5;
+  --foreground: #0c0c0c;
+  --muted-foreground: #62625b;
+  --card: #f0f0e8;
+  --card-foreground: #0c0c0c;
+  --popover: #fafaf5;
+  --popover-foreground: #0c0c0c;
+  --primary: #0c0c0c;
+  --primary-foreground: #d9f44a;
+  --secondary: #f0f0e8;
+  --secondary-foreground: #0c0c0c;
+  --muted: #f0f0e8;
+  --accent: #f0f0e8;
+  --accent-foreground: #0c0c0c;
+  --destructive: #dc2626;
+  --border: #f0f0e8;
+  --input: #f0f0e8;
+  --destaque: #456e0c;
+  --ring: var(--destaque);
+}
+
+.dark {
+  --background: #0c0c0c;
+  --foreground: #f5f5ef;
+  --muted-foreground: #a0a098;
+  --card: #181816;
+  --card-foreground: #f5f5ef;
+  --popover: #0c0c0c;
+  --popover-foreground: #f5f5ef;
+  --primary: #d9f44a;
+  --primary-foreground: #0c0c0c;
+  --secondary: #181816;
+  --secondary-foreground: #f5f5ef;
+  --muted: #181816;
+  --accent: #181816;
+  --accent-foreground: #f5f5ef;
+  --border: #181816;
+  --input: #181816;
+  --destaque: #d9f44a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destaque: var(--destaque);
+  --color-limao: #d9f44a;
+  --color-limao-foreground: #0c0c0c;
+  --color-limao-suave: #2c2c20;
+  --font-sans: var(--font-space-grotesk), "Segoe UI", sans-serif;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 72px;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--destaque);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

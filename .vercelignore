@@ -1,0 +1,13 @@
+_bmad
+_bmad-output
+assets
+out
+.next
+node_modules
+*.test.ts
+*.test.tsx
+vitest.config.mts
+vitest.setup.ts
+.env*
+.vercel
+.claude
