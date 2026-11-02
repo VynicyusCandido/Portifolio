@@ -1,9 +1,14 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { calcularIdade, perfil } from "@/app/service/perfil";
+
+afterEach(() => {
+  vi.unstubAllEnvs();
+  vi.resetModules();
+});
 
 describe("calcularIdade", () => {
   it("mantém a idade na véspera do aniversário", () => {
@@ -25,6 +30,15 @@ describe("arquivos publicados", () => {
     const origem = readFileSync(resolve("assets", perfil.curriculo.slice(1)));
 
     expect(publicado.equals(origem)).toBe(true);
+  });
+
+  it("aponta o Currículo para o subcaminho do GitHub Pages", async () => {
+    vi.stubEnv("NEXT_PUBLIC_BASE_PATH", "/Portifolio");
+    vi.resetModules();
+
+    const { perfil: noPages } = await import("@/app/service/perfil");
+
+    expect(noPages.curriculo).toBe("/Portifolio/Vynicyus_Candido_Curriculo.pdf");
   });
 
   it("publica a imagem de prévia do link", () => {

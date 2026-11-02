@@ -18,7 +18,7 @@ export const perfil = {
   destaque: "Construo aplicações web com Java, Spring Boot, React e Next.js.",
   sobre:
     "Trabalho na Jornada Educação e Tecnologia desde março de 2025 e estou na tecnologia desde 2023. Curso Engenharia de Software na Católica SC, no 6º semestre, com conclusão em dezembro de 2027.",
-  curriculo: "/Vynicyus_Candido_Curriculo.pdf",
+  curriculo: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/Vynicyus_Candido_Curriculo.pdf`,
   tecnologias: [
     { area: "Back-end", itens: ["Java", "Spring Boot", "PostgreSQL"] },
     { area: "Front-end", itens: ["React", "TypeScript", "Next.js", "Tailwind CSS"] },
