@@ -92,6 +92,122 @@
   }
 }
 
+/* Vidro líquido (teste). Originais em scratchpad/backup-navbar-vidro e backup-vidro-v1. */
+:root {
+  --vidro-tom: rgb(255 255 255 / 0.08);
+  --vidro-tom-topo: rgb(255 255 255 / 0.4);
+  --vidro-brilho: rgb(255 255 255 / 1);
+  --vidro-reflexo: rgb(255 255 255 / 0.7);
+  --vidro-risco: rgb(255 255 255 / 0.55);
+  --vidro-contorno: rgb(12 12 12 / 0.11);
+  --vidro-realce-baixo: rgb(69 110 12 / 0.22);
+  --vidro-sombra: rgb(12 12 12 / 0.1);
+  --vidro-ajuste: saturate(1.9) brightness(0.96);
+}
+
+.dark {
+  --vidro-tom: rgb(255 255 255 / 0.004);
+  --vidro-tom-topo: rgb(255 255 255 / 0.03);
+  --vidro-brilho: rgb(255 255 255 / 0.8);
+  --vidro-reflexo: rgb(255 255 255 / 0.14);
+  --vidro-risco: rgb(255 255 255 / 0.05);
+  --vidro-contorno: rgb(255 255 255 / 0.07);
+  --vidro-realce-baixo: rgb(217 244 74 / 0.3);
+  --vidro-sombra: rgb(0 0 0 / 0.45);
+  --vidro-ajuste: saturate(2.1) brightness(1.18);
+}
+
+/* No @layer components para as classes do Tailwind (ex.: hover:bg-limao) ainda vencerem. */
+@layer components {
+  .vidro {
+    position: relative;
+    background-color: var(--vidro-tom);
+    background-image: linear-gradient(180deg, var(--vidro-tom-topo), transparent 60%);
+    -webkit-backdrop-filter: blur(5px) var(--vidro-ajuste);
+    backdrop-filter: blur(5px) var(--vidro-ajuste);
+    box-shadow:
+      inset 0 1px 1px var(--vidro-brilho),
+      inset 0 -10px 22px -12px var(--vidro-realce-baixo),
+      0 0 0 1px var(--vidro-contorno),
+      0 12px 32px -6px var(--vidro-sombra);
+  }
+
+  /* O carrossel corta o que sai da caixa dele (overflow), então o cartão não leva sombra
+     externa: ela aparecia cortada em linha reta. A profundidade vem do aro e do realce. */
+  .vidro-cartao {
+    box-shadow:
+      inset 0 1px 1px var(--vidro-brilho),
+      inset 0 -10px 22px -12px var(--vidro-realce-baixo),
+      0 0 0 1px var(--vidro-contorno);
+  }
+
+  /* Aro de luz: forte nos cantos superior esquerdo e inferior direito, quase some no resto. */
+  .vidro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    padding: 1.5px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      var(--vidro-brilho),
+      transparent 26%,
+      transparent 66%,
+      var(--vidro-reflexo)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+    pointer-events: none;
+  }
+
+  /* Reflexo da luz: um risco de brilho no alto e uma mancha suave no canto superior esquerdo. */
+  .vidro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background:
+      linear-gradient(
+        115deg,
+        transparent 10%,
+        var(--vidro-risco) 32%,
+        transparent 55%
+      ),
+      radial-gradient(110% 80% at 6% 0%, var(--vidro-reflexo), transparent 55%);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  /* Chromium: aplica a lente que dobra o fundo. Safari e Firefox ficam só com o fosco. */
+  @supports (not (-webkit-hyphens: none)) and (not (-moz-appearance: none)) {
+    .vidro {
+      backdrop-filter: url(#vidro-lente) blur(4px) var(--vidro-ajuste);
+    }
+
+    .vidro-cartao {
+      backdrop-filter: url(#vidro-cartao) blur(1.5px) var(--vidro-ajuste);
+    }
+  }
+}
+
+/* DESATIVADO NO TESTE: este PC reporta reduce-transparency (Windows sem efeitos de
+   transparência) e o vidro nunca apareceria. Reativar antes de publicar.
+@media (prefers-reduced-transparency: reduce) {
+  .vidro {
+    background-color: var(--background);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+*/
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;

@@ -4,6 +4,7 @@ import { Footer } from "@/app/componentes/footer/Footer";
 import { Hero } from "@/app/componentes/hero/Hero";
 import { Navbar } from "@/app/componentes/navbar/Navbar";
 import { Projects } from "@/app/componentes/projects/Projects";
+import { FiltrosVidro } from "@/app/componentes/shared/FiltrosVidro";
 
 export default function Page() {
   return (
@@ -14,6 +15,7 @@ export default function Page() {
       >
         Pular para o conteúdo
       </a>
+      <FiltrosVidro />
       <Navbar />
       <main id="conteudo">
         <Hero />

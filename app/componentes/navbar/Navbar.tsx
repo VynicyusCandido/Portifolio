@@ -8,9 +8,9 @@ export function Navbar() {
   return (
     <nav
       aria-label="Principal"
-      className="sticky top-0 z-10 bg-background/85 backdrop-blur-[10px]"
+      className="pointer-events-none sticky top-3 z-10 mx-auto mt-3 max-w-[1040px] px-6"
     >
-      <div className="mx-auto flex h-[60px] max-w-[1040px] items-center gap-3.5 px-6 text-sm md:gap-5">
+      <div className="vidro pointer-events-auto flex h-[60px] items-center gap-3.5 rounded-full px-6 text-sm md:gap-5">
         <b className="mr-auto font-bold">{perfil.nome}</b>
         <a href="#projetos" className={`hidden md:inline ${estiloLink}`}>
           Projetos
