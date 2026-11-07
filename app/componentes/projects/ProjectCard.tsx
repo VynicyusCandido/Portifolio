@@ -1,7 +1,7 @@
 import type { Projeto } from "@/app/service/projetos";
 
 const estiloCartao =
-  "flex min-h-[270px] flex-[0_0_min(78vw,360px)] snap-start flex-col rounded-lg bg-card p-6";
+  "vidro vidro-cartao flex min-h-[270px] flex-[0_0_min(78vw,360px)] snap-start flex-col rounded-lg p-6";
 
 const estiloCartaoComLink =
   "group transition-[background-color,color,translate] duration-150 hover:-translate-y-[3px] hover:bg-limao hover:text-limao-foreground focus-visible:-translate-y-[3px] focus-visible:bg-limao focus-visible:text-limao-foreground motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:focus-visible:translate-y-0";
@@ -34,7 +34,7 @@ function Conteudo({ projeto }: { projeto: Projeto }) {
   );
 }
 
-export function CartaoProjeto({ projeto }: { projeto: Projeto }) {
+export function ProjectCard({ projeto }: { projeto: Projeto }) {
   if (!projeto.link) {
     return (
       <article className={estiloCartao}>

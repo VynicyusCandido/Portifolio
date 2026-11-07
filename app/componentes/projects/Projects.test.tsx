@@ -2,7 +2,7 @@ import { act, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { Projetos } from "@/app/componentes/Projetos";
+import { Projects } from "@/app/componentes/projects/Projects";
 
 let aoRedimensionar: () => void;
 let observados: Element[];
@@ -45,16 +45,16 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 
-describe("Projetos", () => {
+describe("Projects", () => {
   it("observa a faixa e não mostra setas antes de medir", () => {
-    render(<Projetos />);
+    render(<Projects />);
 
     expect(observados).toEqual([screen.getByRole("region")]);
     expect(screen.queryByRole("button", { name: "Próximo projeto" })).not.toBeInTheDocument();
   });
 
   it("desativa a seta anterior no início, mantendo-a focável", () => {
-    render(<Projetos />);
+    render(<Projects />);
     prepararRolagem(0);
 
     const anterior = screen.getByRole("button", { name: "Projeto anterior" });
@@ -67,7 +67,7 @@ describe("Projetos", () => {
   });
 
   it("desativa a próxima seta no fim", () => {
-    render(<Projetos />);
+    render(<Projects />);
     const faixa = prepararRolagem(0);
     medir(faixa, 700, 800, 1500);
     fireEvent.scroll(faixa);
@@ -83,7 +83,7 @@ describe("Projetos", () => {
   });
 
   it("esconde as setas quando todos os cartões cabem", () => {
-    render(<Projetos />);
+    render(<Projects />);
     medir(screen.getByRole("region"), 0, 1900, 1900);
     act(() => aoRedimensionar());
 
@@ -92,7 +92,7 @@ describe("Projetos", () => {
   });
 
   it("avança um cartão pela seta", async () => {
-    render(<Projetos />);
+    render(<Projects />);
     const faixa = prepararRolagem(0);
 
     await userEvent.click(screen.getByRole("button", { name: "Próximo projeto" }));
@@ -101,7 +101,7 @@ describe("Projetos", () => {
   });
 
   it("volta um cartão pela seta", async () => {
-    render(<Projetos />);
+    render(<Projects />);
     const faixa = prepararRolagem(300);
 
     await userEvent.click(screen.getByRole("button", { name: "Projeto anterior" }));
@@ -110,7 +110,7 @@ describe("Projetos", () => {
   });
 
   it("não rola quando a seta está no limite", async () => {
-    render(<Projetos />);
+    render(<Projects />);
     const faixa = prepararRolagem(0);
 
     await userEvent.click(screen.getByRole("button", { name: "Projeto anterior" }));
@@ -119,7 +119,7 @@ describe("Projetos", () => {
   });
 
   it("é focável pelo teclado e respeita movimento reduzido", () => {
-    render(<Projetos />);
+    render(<Projects />);
     const faixa = screen.getByRole("region", { name: "Lista de projetos" });
 
     expect(faixa).toHaveAttribute("tabindex", "0");

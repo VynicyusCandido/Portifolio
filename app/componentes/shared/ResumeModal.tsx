@@ -33,7 +33,7 @@ function PreviaPdf() {
   );
 }
 
-export function ModalCurriculo({ children }: { children: ReactNode }) {
+export function ResumeModal({ children }: { children: ReactNode }) {
   const botaoFechar = useRef<HTMLButtonElement>(null);
 
   return (
