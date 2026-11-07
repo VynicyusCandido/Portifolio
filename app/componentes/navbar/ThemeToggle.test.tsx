@@ -3,12 +3,12 @@ import userEvent from "@testing-library/user-event";
 import { ThemeProvider } from "next-themes";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { BotaoTema } from "@/app/componentes/BotaoTema";
+import { ThemeToggle } from "@/app/componentes/navbar/ThemeToggle";
 
 function montar() {
   render(
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <BotaoTema />
+      <ThemeToggle />
     </ThemeProvider>,
   );
 }
@@ -33,7 +33,7 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 
-describe("BotaoTema", () => {
+describe("ThemeToggle", () => {
   it("na primeira visita, segue o sistema", async () => {
     definirSistema(true);
     montar();

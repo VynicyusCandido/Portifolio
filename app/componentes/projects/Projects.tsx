@@ -3,14 +3,14 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-import { CartaoProjeto } from "@/app/componentes/CartaoProjeto";
+import { ProjectCard } from "@/app/componentes/projects/ProjectCard";
 import { Button } from "@/app/componentes/ui/button";
 import { estadoSetas } from "@/app/service/carrossel";
 import { projetos } from "@/app/service/projetos";
 
 const ESPACO_ENTRE_CARTOES = 16;
 
-export function Projetos() {
+export function Projects() {
   const faixa = useRef<HTMLDivElement>(null);
   const [setas, setSetas] = useState({ cabe: true, noInicio: true, noFim: false });
 
@@ -78,7 +78,7 @@ export function Projetos() {
         className="flex snap-x snap-proximity scroll-px-[max(24px,calc((100vw-1040px)/2+24px))] gap-[16px] overflow-x-auto scroll-smooth pt-1 pr-6 pb-2 pl-[max(24px,calc((100vw-1040px)/2+24px))] [scrollbar-width:none] motion-reduce:scroll-auto [&::-webkit-scrollbar]:hidden"
       >
         {projetos.map((projeto) => (
-          <CartaoProjeto key={projeto.nome} projeto={projeto} />
+          <ProjectCard key={projeto.nome} projeto={projeto} />
         ))}
       </div>
     </section>

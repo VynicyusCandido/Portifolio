@@ -1,9 +1,9 @@
-import { Apresentacao } from "@/app/componentes/Apresentacao";
-import { Contato } from "@/app/componentes/Contato";
-import { Menu } from "@/app/componentes/Menu";
-import { Projetos } from "@/app/componentes/Projetos";
-import { Rodape } from "@/app/componentes/Rodape";
-import { Sobre } from "@/app/componentes/Sobre";
+import { About } from "@/app/componentes/about/About";
+import { Contact } from "@/app/componentes/contact/Contact";
+import { Footer } from "@/app/componentes/footer/Footer";
+import { Hero } from "@/app/componentes/hero/Hero";
+import { Navbar } from "@/app/componentes/navbar/Navbar";
+import { Projects } from "@/app/componentes/projects/Projects";
 
 export default function Page() {
   return (
@@ -14,14 +14,14 @@ export default function Page() {
       >
         Pular para o conteúdo
       </a>
-      <Menu />
+      <Navbar />
       <main id="conteudo">
-        <Apresentacao />
-        <Projetos />
-        <Sobre />
-        <Contato />
+        <Hero />
+        <Projects />
+        <About />
+        <Contact />
       </main>
-      <Rodape />
+      <Footer />
     </>
   );
 }

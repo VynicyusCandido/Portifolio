@@ -1,10 +1,10 @@
-import { BotaoTema } from "@/app/componentes/BotaoTema";
-import { ModalCurriculo } from "@/app/componentes/ModalCurriculo";
+import { ThemeToggle } from "@/app/componentes/navbar/ThemeToggle";
+import { ResumeModal } from "@/app/componentes/shared/ResumeModal";
 import { perfil } from "@/app/service/perfil";
 
 const estiloLink = "text-muted-foreground transition-colors hover:text-destaque";
 
-export function Menu() {
+export function Navbar() {
   return (
     <nav
       aria-label="Principal"
@@ -21,12 +21,12 @@ export function Menu() {
         <a href="#contato" className={estiloLink}>
           Contato
         </a>
-        <ModalCurriculo>
+        <ResumeModal>
           <button type="button" className={`cursor-pointer ${estiloLink}`}>
             Currículo
           </button>
-        </ModalCurriculo>
-        <BotaoTema />
+        </ResumeModal>
+        <ThemeToggle />
       </div>
     </nav>
   );

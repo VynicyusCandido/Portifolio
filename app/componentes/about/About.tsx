@@ -1,6 +1,6 @@
 import { perfil } from "@/app/service/perfil";
 
-export function Sobre() {
+export function About() {
   return (
     <section id="sobre" className="py-14">
       <div className="mx-auto grid max-w-[1040px] gap-10 px-6 md:grid-cols-2">

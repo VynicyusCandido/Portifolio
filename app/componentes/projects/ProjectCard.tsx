@@ -34,7 +34,7 @@ function Conteudo({ projeto }: { projeto: Projeto }) {
   );
 }
 
-export function CartaoProjeto({ projeto }: { projeto: Projeto }) {
+export function ProjectCard({ projeto }: { projeto: Projeto }) {
   if (!projeto.link) {
     return (
       <article className={estiloCartao}>

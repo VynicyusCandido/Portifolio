@@ -1,6 +1,6 @@
 import { contatos } from "@/app/service/contatos";
 
-export function Contato() {
+export function Contact() {
   return (
     <section id="contato" className="py-14">
       <div className="mx-auto max-w-[1040px] px-6">

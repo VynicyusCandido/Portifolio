@@ -2,7 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it } from "vitest";
 
-import { ModalCurriculo } from "@/app/componentes/ModalCurriculo";
+import { ResumeModal } from "@/app/componentes/shared/ResumeModal";
 
 function definirVisualizador(valor: boolean) {
   Object.defineProperty(navigator, "pdfViewerEnabled", { value: valor, configurable: true });
@@ -10,9 +10,9 @@ function definirVisualizador(valor: boolean) {
 
 async function abrir() {
   render(
-    <ModalCurriculo>
+    <ResumeModal>
       <button>Ver currículo</button>
-    </ModalCurriculo>,
+    </ResumeModal>,
   );
   await userEvent.click(screen.getByRole("button", { name: "Ver currículo" }));
 }
@@ -27,7 +27,7 @@ afterEach(() => {
   Reflect.deleteProperty(navigator, "pdfViewerEnabled");
 });
 
-describe("ModalCurriculo", () => {
+describe("ResumeModal", () => {
   it("mostra o PDF e o download quando o navegador tem visualizador", async () => {
     definirVisualizador(true);
     await abrir();

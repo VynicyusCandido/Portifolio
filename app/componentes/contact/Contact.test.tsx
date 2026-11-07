@@ -1,16 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import { Contato } from "@/app/componentes/Contato";
+import { Contact } from "@/app/componentes/contact/Contact";
 
-describe("Contato", () => {
+describe("Contact", () => {
   it.each([
     ["WhatsApp", "https://wa.me/5547997862429"],
     ["LinkedIn", "https://www.linkedin.com/in/vynicyus-candido-b3a477265/"],
     ["Instagram", "https://www.instagram.com/vynicyuscandido/"],
     ["GitHub", "https://github.com/VynicyusCandido"],
   ])("%s abre o destino correto em nova aba", (nome, destino) => {
-    render(<Contato />);
+    render(<Contact />);
 
     const link = screen.getByRole("link", { name: nome });
     expect(link).toHaveAttribute("href", destino);
@@ -19,7 +19,7 @@ describe("Contato", () => {
   });
 
   it("E-mail abre o programa de e-mail, sem nova aba", () => {
-    render(<Contato />);
+    render(<Contact />);
 
     const link = screen.getByRole("link", { name: "E-mail" });
     expect(link).toHaveAttribute("href", "mailto:vynicyuscandido@gmail.com");
@@ -27,7 +27,7 @@ describe("Contato", () => {
   });
 
   it("não mostra o número de telefone no texto", () => {
-    const { container } = render(<Contato />);
+    const { container } = render(<Contact />);
 
     expect(container.textContent).not.toMatch(/\d{4}/);
   });
