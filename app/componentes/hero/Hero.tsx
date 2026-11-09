@@ -21,7 +21,7 @@ export function Hero() {
       </p>
       <div className="mt-8 flex flex-wrap gap-2.5">
         <Button asChild>
-          <a href="#contato">Falar comigo</a>
+          <a href="#contato">Fale comigo</a>
         </Button>
         <ResumeModal>
           <Button variant="secondary">Ver currículo</Button>
