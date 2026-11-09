@@ -42,8 +42,8 @@ export function Projects() {
   return (
     <section id="projetos" className="relative isolate py-14">
       {/* Brilho de fundo (só decorativo): dá o que o vidro dos cartões refrata. */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,#000_25%,#000_75%,transparent)]">
-        <div className="absolute top-[18%] left-[8%] size-[420px] rounded-full bg-destaque/35 blur-[90px] dark:bg-destaque/20" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 -top-24 -bottom-10 -z-10 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,#000_14%,#000_78%,transparent)]">
+        <div className="absolute top-[8%] left-[8%] size-[420px] rounded-full bg-destaque/35 blur-[90px] dark:bg-destaque/20" />
         <div className="absolute top-[40%] left-[48%] size-[360px] rounded-full bg-destaque/30 blur-[90px] dark:bg-destaque/15" />
       </div>
       <div className="mx-auto mb-6 flex max-w-[1040px] items-center justify-between px-6">
