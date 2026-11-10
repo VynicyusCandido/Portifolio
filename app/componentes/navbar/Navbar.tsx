@@ -11,7 +11,12 @@ export function Navbar() {
       className="pointer-events-none sticky top-3 z-10 mx-auto mt-3 max-w-[1040px] px-6"
     >
       <div className="vidro pointer-events-auto flex h-[60px] items-center gap-3.5 rounded-full px-6 text-sm md:gap-5">
-        <b className="mr-auto font-bold">{perfil.nome}</b>
+        <b className="mr-auto font-bold">
+          {/* Símbolos só decorativos: o leitor de tela lê apenas o nome. */}
+          <span aria-hidden="true">{"<"}</span>
+          {perfil.nome}
+          <span aria-hidden="true">{"/>"}</span>
+        </b>
         <a href="#projetos" className={`hidden md:inline ${estiloLink}`}>
           Projetos
         </a>
