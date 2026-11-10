@@ -14,7 +14,7 @@ const fonte = Space_Grotesk({
 });
 
 const titulo = `${perfil.nomeCompleto} | ${perfil.cargo}`;
-const descricao = `${perfil.cargo} em ${perfil.cidade}. ${perfil.destaque}`;
+const descricao = `${perfil.cargo} ${perfil.destaque}`;
 const dominio = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? "vynicyuscandido.com";
 const endereco = process.env.SITE_URL ?? `https://${dominio}`;
 

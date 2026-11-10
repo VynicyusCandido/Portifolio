@@ -3,25 +3,11 @@ import { resolve } from "node:path";
 
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { calcularIdade, perfil } from "@/app/service/perfil";
+import { perfil } from "@/app/service/perfil";
 
 afterEach(() => {
   vi.unstubAllEnvs();
   vi.resetModules();
-});
-
-describe("calcularIdade", () => {
-  it("mantém a idade na véspera do aniversário", () => {
-    expect(calcularIdade(new Date(2027, 0, 21))).toBe(30);
-  });
-
-  it("aumenta a idade no dia do aniversário", () => {
-    expect(calcularIdade(new Date(2027, 0, 22))).toBe(31);
-  });
-
-  it("mostra 30 anos na data do PRD", () => {
-    expect(calcularIdade(new Date(2026, 10, 1))).toBe(30);
-  });
 });
 
 describe("arquivos publicados", () => {
