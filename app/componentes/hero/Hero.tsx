@@ -10,9 +10,11 @@ export function Hero() {
         {perfil.disponibilidade}
       </p>
       <h1 className="text-[clamp(50px,11vw,120px)] leading-[0.95] font-bold tracking-[-0.05em]">
+        <span aria-hidden="true">{"<"}</span>
         {perfil.nome}
         <br />
         <em className="text-destaque not-italic">{perfil.sobrenome}</em>
+        <span aria-hidden="true">{"/>"}</span>
       </h1>
       <p className="mt-[22px] max-w-[600px] text-[clamp(18px,2.2vw,22px)] leading-[1.45] text-muted-foreground">
         {perfil.cargo} {perfil.destaque}
