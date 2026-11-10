@@ -1,7 +1,6 @@
-import { Age } from "@/app/componentes/hero/Age";
 import { ResumeModal } from "@/app/componentes/shared/ResumeModal";
 import { Button } from "@/app/componentes/ui/button";
-import { calcularIdade, perfil } from "@/app/service/perfil";
+import { perfil } from "@/app/service/perfil";
 
 export function Hero() {
   return (
@@ -16,8 +15,7 @@ export function Hero() {
         <em className="text-destaque not-italic">{perfil.sobrenome}</em>
       </h1>
       <p className="mt-[22px] max-w-[600px] text-[clamp(18px,2.2vw,22px)] leading-[1.45] text-muted-foreground">
-        {perfil.cargo} em {perfil.cidade}, <Age noBuild={calcularIdade()} /> anos.{" "}
-        {perfil.destaque}
+        {perfil.cargo} {perfil.destaque}
       </p>
       <div className="mt-8 flex flex-wrap gap-2.5">
         <Button asChild>
